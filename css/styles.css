@@ -33,4 +33,9 @@ body {
     background-color: cornflowerblue;
     color: white;
 }
+
+.selected{
+    background-color: cornflowerblue;
+    color: white;
+}
 /* --------------------End---------------------- */
