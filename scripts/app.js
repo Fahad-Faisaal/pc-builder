@@ -10,7 +10,6 @@ function updateTotalCost () {
 
 function updateProductCost (product, price) {
   const productCost = document.getElementById(`${product}-price`);
-  console.log(productCost);
   const allproduct = document.getElementsByClassName(product);
   for (const product of allproduct) {
     if (product.classList.contains('selected')) product.classList.remove('selected');
@@ -66,5 +65,24 @@ document.getElementById('paid-delivery').addEventListener('click', function () {
   this.classList.add('selected');
   updateTotalCost();
 });
+
+// coupon
+document.getElementById('btn-promo').addEventListener('click', function() {
+  const promoInput = document.getElementById('promo-input');
+  const totalPrice = document.getElementById('total-price');
+  if (promoInput.value === 'Apple') {
+     totalPrice.innerText = +totalPrice.innerText - ((+totalPrice.innerText * 20) / 100);
+     promoInput.classList.add('d-none');
+     this.classList.add('d-none');
+     document.getElementById('promo-success-text').classList.remove('d-none');
+     document.getElementById('promo-failed-text').classList.add('d-none');
+     document.getElementById('promo-code').classList.add('d-none');
+  }
+  else {
+    document.getElementById('promo-success-text').classList.add('d-none');
+    document.getElementById('promo-failed-text').classList.remove('d-none');
+    promoInput.value = '';
+  }
+})
 
 
